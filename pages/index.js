@@ -1,12 +1,13 @@
 import BlogGrid from "@/components/BlogGrid";
-import { Inter } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
+import { gupter } from "../utils/fonts";
+import Layout from "@/components/Layout";
+import Featured from "../components/FeaturedGrid";
 
 export default function Home() {
   return (
-    <main className="text-center ">
+    <Layout>
+      <Featured />
       <BlogGrid />
-    </main>
+    </Layout>
   );
 }

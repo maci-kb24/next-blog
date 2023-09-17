@@ -1,15 +1,14 @@
 import { useState, useEffect } from "react";
-import BlogCard from "./BlogCard";
+import FeaturedCard from "./FeaturedCard";
 
-function BlogGrid() {
-  const [articles, setArticles] = useState([]);
+const Featured = ({ title, description }) => {
+  const [featured, setFeatured] = useState([]);
 
   useEffect(() => {
     fetch("/api/newsapi")
       .then((response) => response.json())
       .then((data) => {
-        // setArticles(data.posts.slice(0, 10));
-        setRecentArticles(data.posts.slice(0, 10));
+        setFeatured(data.posts.slice(0, 3));
         console.log(data.posts);
       })
       .catch((error) => {
@@ -18,10 +17,10 @@ function BlogGrid() {
   }, []);
 
   return (
-    <div className="blog-grid flex flex-col mx-auto">
-      {articles.map((article, id) => {
+    <div className="featured-grid flex">
+      {featured.map((article, id) => {
         return (
-          <BlogCard
+          <FeaturedCard
             key={id}
             title={article.title}
             description={article.body}
@@ -32,6 +31,6 @@ function BlogGrid() {
       })}
     </div>
   );
-}
+};
 
-export default BlogGrid;
+export default Featured;

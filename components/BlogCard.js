@@ -1,10 +1,10 @@
 // import "./blogpost.css";
-import Image from "next/image";
+// import Image from "next/image";
 
-const BlogPost = ({ title, description, url, urlToImage }) => {
+const BlogCard = ({ title, description, url, urlToImage }) => {
   return (
-    <div className="flex justify-center">
-      <div className="border-solid w-1/2 p-5 mb-5 border border-black">
+    <div className="blog-card">
+      <div className="border-solid  p-5 mb-5 border border-black">
         {/* <img className="blogs-img" src={urlToImage} alt={urlToImage} /> */}
         {/* <Image
           className="blogs-img"
@@ -21,4 +21,4 @@ const BlogPost = ({ title, description, url, urlToImage }) => {
   );
 };
 
-export default BlogPost;
+export default BlogCard;
